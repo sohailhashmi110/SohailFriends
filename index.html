@@ -1,727 +1,637 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Sohail Hashmi | Friends & Memories</title>
-<meta name="description" content="Sohail Hashmi — friends, school memories, photos and videos.">
 
 <style>
-:root{
---bg:#050611;
---card:#0c1020cc;
---text:#f6f8ff;
---muted:#a9b2cc;
---cyan:#53e7ff;
---pink:#ff55c8;
---violet:#8d63ff
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-*{box-sizing:border-box}
-
-html{scroll-behavior:smooth}
+html{
+    scroll-behavior:smooth;
+}
 
 body{
-margin:0;
-color:var(--text);
-font-family:Inter,system-ui,Arial,sans-serif;
-background:
-radial-gradient(circle at 10% 10%,#16475a55,transparent 25%),
-radial-gradient(circle at 90% 15%,#70145255,transparent 28%),
-linear-gradient(135deg,#03040a,#090d1d 52%,#05040b);
-overflow-x:hidden
+    font-family:Arial, Helvetica, sans-serif;
+    color:white;
+    background:#050511;
+    overflow-x:hidden;
 }
 
-body:before{
-content:"";
-position:fixed;
-inset:0;
-z-index:-1;
-opacity:.16;
-background-image:
-linear-gradient(#fff1 1px,transparent 1px),
-linear-gradient(90deg,#fff1 1px,transparent 1px);
-background-size:45px 45px
+/* Animated background */
+body::before{
+    content:"";
+    position:fixed;
+    inset:-50%;
+    z-index:-2;
+    background:
+        radial-gradient(circle at 20% 20%, #4f46e5 0%, transparent 25%),
+        radial-gradient(circle at 80% 30%, #06b6d4 0%, transparent 25%),
+        radial-gradient(circle at 50% 80%, #9333ea 0%, transparent 30%);
+    filter:blur(70px);
+    animation:bgMove 12s ease-in-out infinite alternate;
 }
 
-body:after{
-content:"";
-position:fixed;
-width:320px;
-height:320px;
-left:50%;
-top:45%;
-translate:-50% -50%;
-border-radius:50%;
-background:linear-gradient(90deg,var(--cyan),var(--pink));
-filter:blur(120px);
-opacity:.09;
-z-index:-1
+@keyframes bgMove{
+    from{
+        transform:translate(-3%,-2%) rotate(0deg);
+    }
+    to{
+        transform:translate(3%,2%) rotate(8deg);
+    }
 }
 
+/* Navigation */
 nav{
-position:fixed;
-z-index:10;
-top:14px;
-left:50%;
-translate:-50% 0;
-width:min(1120px,calc(100% - 24px));
-padding:13px 18px;
-border:1px solid #fff2;
-border-radius:22px;
-background:#070a16b8;
-backdrop-filter:blur(18px);
-display:flex;
-align-items:center;
-justify-content:space-between
+    position:fixed;
+    top:18px;
+    left:50%;
+    transform:translateX(-50%);
+    width:min(1100px,92%);
+    padding:14px 22px;
+    border:1px solid rgba(255,255,255,.15);
+    border-radius:20px;
+    background:rgba(10,10,25,.65);
+    backdrop-filter:blur(18px);
+    z-index:1000;
+    box-shadow:0 10px 40px rgba(0,0,0,.3);
+}
+
+.nav-inner{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 }
 
 .logo{
-font-weight:950;
-letter-spacing:-.5px
+    font-size:20px;
+    font-weight:900;
+    letter-spacing:1px;
 }
 
-.logo span{color:var(--cyan)}
+.logo span{
+    background:linear-gradient(90deg,#60a5fa,#c084fc,#22d3ee);
+    -webkit-background-clip:text;
+    color:transparent;
+}
 
 nav a{
-color:#dfe5fa;
-text-decoration:none;
-font-size:13px;
-margin-left:16px;
-transition:.25s
+    color:#ddd;
+    text-decoration:none;
+    margin-left:22px;
+    font-size:14px;
+    transition:.3s;
 }
 
-nav a:hover{color:var(--cyan)}
+nav a:hover{
+    color:#fff;
+}
 
+/* Hero */
 .hero{
-min-height:100vh;
-display:grid;
-place-items:center;
-text-align:center;
-padding:120px 18px 70px
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:130px 20px 80px;
 }
 
-.hero-inner{max-width:980px}
+.hero-content{
+    max-width:900px;
+    animation:heroIn 1.2s ease;
+}
 
-.pill{
-display:inline-flex;
-gap:8px;
-align-items:center;
-padding:8px 13px;
-border:1px solid #53e7ff55;
-background:#53e7ff10;
-color:#c9f8ff;
-border-radius:999px;
-font-size:12px
+@keyframes heroIn{
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.badge{
+    display:inline-block;
+    padding:9px 18px;
+    border-radius:50px;
+    border:1px solid rgba(255,255,255,.2);
+    background:rgba(255,255,255,.07);
+    color:#b9c7ff;
+    margin-bottom:25px;
+    font-size:14px;
 }
 
 h1{
-font-size:clamp(55px,10vw,118px);
-line-height:.88;
-letter-spacing:-7px;
-margin:26px 0 22px;
-background:linear-gradient(90deg,#fff,#53e7ff,#ff55c8,#fff);
-background-size:250% auto;
--webkit-background-clip:text;
-color:transparent;
-animation:gradient 6s linear infinite
+    font-size:clamp(50px,9vw,105px);
+    line-height:.95;
+    font-weight:900;
+    letter-spacing:-4px;
+    background:linear-gradient(
+        90deg,
+        #fff,
+        #60a5fa,
+        #c084fc,
+        #22d3ee,
+        #fff
+    );
+    background-size:300%;
+    -webkit-background-clip:text;
+    color:transparent;
+    animation:gradientMove 7s linear infinite;
+}
+
+@keyframes gradientMove{
+    to{
+        background-position:300%;
+    }
 }
 
 .hero p{
-max-width:650px;
-margin:auto;
-color:var(--muted);
-font-size:17px;
-line-height:1.75
+    max-width:650px;
+    margin:28px auto;
+    color:#b9b9c9;
+    font-size:18px;
+    line-height:1.7;
 }
 
-.cta{
-display:inline-block;
-margin-top:25px;
-padding:14px 22px;
-border-radius:15px;
-text-decoration:none;
-color:#061019;
-font-weight:900;
-background:linear-gradient(100deg,var(--cyan),#fff,var(--pink));
-box-shadow:0 15px 50px #53e7ff22;
-transition:.3s
+.btn{
+    display:inline-block;
+    padding:14px 25px;
+    border-radius:14px;
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+    background:linear-gradient(90deg,#4f46e5,#9333ea);
+    box-shadow:0 10px 30px rgba(99,70,229,.35);
+    transition:.3s;
 }
 
-.cta:hover{
-transform:translateY(-5px);
-box-shadow:0 20px 65px #ff55c833
+.btn:hover{
+    transform:translateY(-4px) scale(1.03);
+    box-shadow:0 15px 40px rgba(99,70,229,.5);
 }
 
+/* Sections */
 section{
-width:min(1120px,calc(100% - 24px));
-margin:auto;
-padding:82px 0
+    width:min(1100px,92%);
+    margin:auto;
+    padding:100px 0;
 }
 
-.heading{
-text-align:center;
-margin-bottom:34px
+.section-title{
+    text-align:center;
+    margin-bottom:50px;
 }
 
-.heading h2{
-font-size:clamp(34px,6vw,58px);
-margin:0 0 10px;
-letter-spacing:-2px
+.section-title h2{
+    font-size:42px;
+    margin-bottom:12px;
 }
 
-.heading p{
-color:var(--muted);
-margin:0
+.section-title p{
+    color:#999;
 }
 
+/* Main photo */
+.photo-card{
+    position:relative;
+    overflow:hidden;
+    border-radius:30px;
+    border:1px solid rgba(255,255,255,.15);
+    background:rgba(255,255,255,.06);
+    box-shadow:0 30px 80px rgba(0,0,0,.4);
+}
+
+.photo-card img{
+    width:100%;
+    display:block;
+    transition:transform .8s ease;
+}
+
+.photo-card:hover img{
+    transform:scale(1.04);
+}
+
+.photo-info{
+    padding:25px;
+}
+
+.photo-info h3{
+    font-size:28px;
+    margin-bottom:8px;
+}
+
+.photo-info p{
+    color:#aaa;
+    line-height:1.6;
+}
+
+/* Cards */
 .cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(235px,1fr));
-gap:20px
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:25px;
 }
 
 .card{
-position:relative;
-overflow:hidden;
-padding:10px;
-border:1px solid #fff2;
-border-radius:26px;
-background:linear-gradient(145deg,#ffffff12,#ffffff04);
-box-shadow:0 25px 80px #0007;
-transition:.5s
+    position:relative;
+    overflow:hidden;
+    padding:28px;
+    min-height:250px;
+    border-radius:25px;
+    border:1px solid rgba(255,255,255,.12);
+    background:linear-gradient(
+        145deg,
+        rgba(255,255,255,.12),
+        rgba(255,255,255,.035)
+    );
+    backdrop-filter:blur(15px);
+    transition:.45s ease;
 }
 
-.card:before{
-content:"";
-position:absolute;
-inset:-2px;
-background:conic-gradient(
-from 0deg,
-transparent,
-#53e7ff66,
-transparent,
-#ff55c866,
-transparent
-);
-filter:blur(15px);
-opacity:0;
-transition:.5s
+.card::before{
+    content:"";
+    position:absolute;
+    width:130px;
+    height:130px;
+    background:#6366f1;
+    border-radius:50%;
+    filter:blur(70px);
+    opacity:.25;
+    top:-50px;
+    right:-50px;
+    transition:.5s;
 }
 
 .card:hover{
-transform:translateY(-12px);
-border-color:#53e7ff66
+    transform:translateY(-12px);
+    border-color:rgba(255,255,255,.3);
+    box-shadow:0 25px 60px rgba(0,0,0,.35);
 }
 
-.card:hover:before{opacity:1}
-
-.card>*{position:relative}
-
-.card-img{
-height:270px;
-border-radius:19px;
-overflow:hidden;
-background:#11172a
+.card:hover::before{
+    transform:scale(2);
 }
 
-.card-img img{
-width:100%;
-height:100%;
-object-fit:cover;
-transition:.7s
+.card-number{
+    color:#818cf8;
+    font-size:13px;
+    font-weight:bold;
+    letter-spacing:2px;
+    margin-bottom:35px;
 }
 
-.card:hover .card-img img{
-transform:scale(1.08)
+.card h3{
+    font-size:26px;
+    margin-bottom:10px;
 }
 
-.card-body{
-padding:17px 9px 12px
+.card p{
+    color:#aaa;
+    line-height:1.6;
 }
 
-.card-body h3{
-margin:0 0 6px;
-font-size:22px
+.profile-btn{
+    display:inline-block;
+    margin-top:22px;
+    color:#93c5fd;
+    text-decoration:none;
+    font-size:14px;
 }
 
-.card-body p{
-margin:0 0 13px;
-color:var(--muted);
-line-height:1.55
+/* Group photo */
+.group-photo{
+    border-radius:30px;
+    overflow:hidden;
+    border:1px solid rgba(255,255,255,.15);
+    box-shadow:0 30px 70px rgba(0,0,0,.4);
 }
 
-.chips span{
-display:inline-block;
-padding:6px 9px;
-margin:0 5px 5px 0;
-border-radius:999px;
-border:1px solid #fff2;
-color:#cdd5eb;
-font-size:10px;
-background:#fff1
+.group-photo img{
+    width:100%;
+    display:block;
+    transition:.7s;
 }
 
-.feature{
-display:grid;
-grid-template-columns:1.15fr .85fr;
-gap:24px;
-align-items:stretch
+.group-photo:hover img{
+    transform:scale(1.025);
 }
 
-.media,
-.info-box{
-border:1px solid #fff2;
-border-radius:28px;
-background:#ffffff07;
-overflow:hidden;
-box-shadow:0 25px 80px #0006
+.group-caption{
+    text-align:center;
+    padding:25px;
+    background:rgba(255,255,255,.06);
 }
 
-.media img{
-width:100%;
-height:100%;
-min-height:360px;
-object-fit:cover;
-display:block
+.group-caption h3{
+    font-size:27px;
+    margin-bottom:8px;
 }
 
-.info-box{
-padding:28px
+.group-caption p{
+    color:#999;
 }
 
-.info-box h3{
-font-size:32px;
-margin:0 0 10px
+/* About */
+.about{
+    text-align:center;
+    max-width:750px;
+    margin:auto;
 }
 
-.info-box p{
-color:var(--muted);
-line-height:1.8
+.about p{
+    color:#aaa;
+    line-height:1.9;
+    font-size:17px;
 }
 
-.stat{
-display:flex;
-gap:10px;
-flex-wrap:wrap;
-margin-top:22px
-}
-
-.stat b{
-padding:10px 13px;
-border-radius:13px;
-background:#fff0;
-border:1px solid #53e7ff33
-}
-
-.gallery{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:20px
-}
-
-.gallery figure{
-margin:0;
-border:1px solid #fff2;
-border-radius:25px;
-overflow:hidden;
-background:#fff1
-}
-
-.gallery img{
-width:100%;
-height:340px;
-object-fit:cover;
-display:block;
-transition:.6s
-}
-
-.gallery figure:hover img{
-transform:scale(1.04)
-}
-
-figcaption{
-padding:15px;
-color:#dce4fa
-}
-
-.video{
-padding:55px 25px;
-text-align:center;
-border:1px dashed #53e7ff55;
-border-radius:27px;
-background:#53e7ff08
-}
-
-.video .play{
-font-size:54px
-}
-
-.video p{
-color:var(--muted)
-}
-
-.reveal{
-opacity:0;
-transform:translateY(35px);
-transition:.8s
-}
-
-.reveal.show{
-opacity:1;
-transform:none
-}
-
+/* Footer */
 footer{
-text-align:center;
-color:#7f8aa8;
-padding:55px 18px;
-border-top:1px solid #fff1
+    text-align:center;
+    padding:60px 20px;
+    border-top:1px solid rgba(255,255,255,.1);
+    color:#777;
 }
 
-@keyframes gradient{
-to{background-position:250% center}
+footer strong{
+    color:white;
 }
 
-@media(max-width:760px){
-
-nav .links{display:none}
-
-h1{letter-spacing:-3px}
-
-.feature,
-.gallery{
-grid-template-columns:1fr
+/* Floating lights */
+.light{
+    position:fixed;
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:#fff;
+    opacity:.35;
+    pointer-events:none;
+    animation:float 8s linear infinite;
 }
 
-.media img{min-height:260px}
+.light:nth-child(1){
+    left:10%;
+    bottom:-20px;
+    animation-delay:1s;
+}
 
-.gallery img{height:270px}
+.light:nth-child(2){
+    left:50%;
+    bottom:-20px;
+    animation-delay:4s;
+}
 
+.light:nth-child(3){
+    left:85%;
+    bottom:-20px;
+    animation-delay:2s;
+}
+
+@keyframes float{
+    0%{
+        transform:translateY(0);
+        opacity:0;
+    }
+    20%{
+        opacity:.5;
+    }
+    100%{
+        transform:translateY(-110vh);
+        opacity:0;
+    }
+}
+
+/* Mobile */
+@media(max-width:650px){
+
+    nav{
+        padding:12px 15px;
+    }
+
+    nav a{
+        margin-left:8px;
+        font-size:12px;
+    }
+
+    h1{
+        letter-spacing:-2px;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    section{
+        padding:70px 0;
+    }
+
+    .section-title h2{
+        font-size:32px;
+    }
+
+    .card{
+        min-height:220px;
+    }
 }
 </style>
 </head>
 
 <body>
 
-<nav>
-<div class="logo">Sohail<span>Hashmi</span></div>
+<div class="light"></div>
+<div class="light"></div>
+<div class="light"></div>
 
-<div class="links">
-<a href="#home">Home</a>
-<a href="#friends">Friends</a>
-<a href="#photos">Photos</a>
-<a href="#videos">Videos</a>
-<a href="#about">About</a>
-</div>
+<!-- Navigation -->
+<nav>
+    <div class="nav-inner">
+        <div class="logo">
+            <span>Sohail Hashmi</span>
+        </div>
+
+        <div>
+            <a href="#home">Home</a>
+            <a href="#friends">Friends</a>
+            <a href="#memories">Memories</a>
+            <a href="#about">About</a>
+        </div>
+    </div>
 </nav>
 
-<header id="home" class="hero">
 
-<div class="hero-inner">
+<!-- Hero -->
+<header class="hero" id="home">
 
-<span class="pill">✦ CLASS 9 • FRIENDS • MEMORIES</span>
+    <div class="hero-content">
 
-<h1>
-Welcome to<br>
-Sohail Hashmi
-</h1>
+        <div class="badge">
+            ✦ Friends • Memories • Moments
+        </div>
 
-<p>
-A cinematic little corner for school friends,
-real photos and memories — built with smooth motion,
-glowing cards and a modern responsive design.
-</p>
+        <h1>
+            Sohail<br>
+            Hashmi
+        </h1>
 
-<a class="cta" href="#friends">
-Explore the Story →
-</a>
+        <p>
+            Welcome to my personal space — a collection of
+            friends, memories, photographs and unforgettable moments.
+        </p>
 
-</div>
+        <a href="#friends" class="btn">
+            Explore Website →
+        </a>
+
+    </div>
 
 </header>
 
 
-<section id="friends" class="reveal">
-
-<div class="heading">
-
-<h2>Meet the Friends</h2>
-
-<p>
-Each card is ready for a real profile photo
-and short public introduction.
-</p>
-
-</div>
-
-
-<div class="cards">
-
-
-<article class="card">
-
-<div class="card-img">
-<img src="assets/friends-selfie.jpg"
-alt="Sohail Hashmi with friends">
-</div>
-
-<div class="card-body">
-
-<h3>Sohail Hashmi</h3>
-
-<p>Student • Friend</p>
-
-<div class="chips">
-<span>Class 9</span>
-<span>Founder of this memory page</span>
-</div>
-
-</div>
-
-</article>
-
-
-
-<article class="card">
-
-<div class="card-img">
-<img src="assets/friends-three.jpg"
-alt="Yasir with friends">
-</div>
-
-<div class="card-body">
-
-<h3>Yasir</h3>
-
-<p>Student • Friend</p>
-
-<div class="chips">
-<span>Class 9</span>
-<span>Friend</span>
-</div>
-
-</div>
-
-</article>
-
-
-
-<article class="card">
-
-<div class="card-img">
-<img src="assets/friends-three.jpg"
-alt="Aizaz-ul-Haq with friends">
-</div>
-
-<div class="card-body">
-
-<h3>Aizaz-ul-Haq</h3>
-
-<p>Student • Friend</p>
-
-<div class="chips">
-<span>Class 9</span>
-<span>Friend</span>
-</div>
-
-</div>
-
-</article>
-
-
-
-<article class="card">
-
-<div class="card-img">
-<img src="assets/friends-selfie.jpg"
-alt="Sudais with friends">
-</div>
-
-<div class="card-body">
-
-<h3>Sudais</h3>
-
-<p>Student • Friend</p>
-
-<div class="chips">
-<span>Class 9</span>
-<span>Friend</span>
-</div>
-
-</div>
-
-</article>
-
-
-
-<article class="card">
-
-<div class="card-img">
-<img src="assets/friends-selfie.jpg"
-alt="Israr with friends">
-</div>
-
-<div class="card-body">
-
-<h3>Israr</h3>
-
-<p>Student • Friend</p>
-
-<div class="chips">
-<span>Class 9</span>
-<span>Friend</span>
-</div>
-
-</div>
-
-</article>
-
-
-</div>
-</section>
-
-
-
-<section id="about" class="reveal">
-
-<div class="feature">
-
-<div class="media">
-
-<img src="assets/friends-selfie.jpg"
-alt="Sohail Hashmi and friends">
-
-</div>
-
-
-<div class="info-box">
-
-<h3>The Main Story</h3>
-
-<p>
-This website is being built as a beautiful digital
-memory book — not just a plain page. Photos,
-profiles, group moments, animations and videos
-can all live here.
-</p>
-
-<div class="stat">
-
-<b>✦ Smooth UI</b>
-<b>📱 Mobile Ready</b>
-<b>💻 Desktop Ready</b>
-<b>🎬 Video Ready</b>
-
-</div>
-
-</div>
-
-</div>
+<!-- Friends -->
+<section id="friends">
+
+    <div class="section-title">
+        <h2>My Friends</h2>
+        <p>People who make the memories special.</p>
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+            <div class="card-number">01 — FRIEND</div>
+            <h3>Sohail Hashmi</h3>
+            <p>
+                A student and creator who loves technology,
+                websites and creative projects.
+            </p>
+            <a class="profile-btn" href="#about">
+                View Profile →
+            </a>
+        </div>
+
+
+        <div class="card">
+            <div class="card-number">02 — FRIEND</div>
+            <h3>Yasar</h3>
+            <p>
+                One of the friends featured in our
+                school memories and group moments.
+            </p>
+            <a class="profile-btn" href="#memories">
+                View Memory →
+            </a>
+        </div>
+
+
+        <div class="card">
+            <div class="card-number">03 — FRIEND</div>
+            <h3>Ehzaj Ul Haq</h3>
+            <p>
+                A friend and part of our memorable
+                school moments.
+            </p>
+            <a class="profile-btn" href="#memories">
+                View Memory →
+            </a>
+        </div>
+
+
+        <div class="card">
+            <div class="card-number">04 — FRIEND</div>
+            <h3>Sudais</h3>
+            <p>
+                A friend who is part of our
+                unforgettable group memories.
+            </p>
+            <a class="profile-btn" href="#memories">
+                View Memory →
+            </a>
+        </div>
+
+
+        <div class="card">
+            <div class="card-number">05 — FRIEND</div>
+            <h3>Israr</h3>
+            <p>
+                A friend featured in our
+                school memories.
+            </p>
+            <a class="profile-btn" href="#memories">
+                View Memory →
+            </a>
+        </div>
+
+    </div>
 
 </section>
 
 
+<!-- Group Memory -->
+<section id="memories">
 
-<section id="photos" class="reveal">
+    <div class="section-title">
+        <h2>Our Group Photo</h2>
+        <p>A special memory from our school days.</p>
+    </div>
 
-<div class="heading">
+    <div class="group-photo">
 
-<h2>Our Gallery</h2>
+        <img src="group-photo.jpg" alt="Our Group Photo">
 
-<p>
-Real school memories, presented as a visual gallery.
-</p>
+        <div class="group-caption">
+            <h3>Our Group Photo</h3>
+            <p>
+                Class 9 students — a beautiful memory
+                captured together.
+            </p>
+        </div>
 
-</div>
-
-
-<div class="gallery">
-
-<figure>
-
-<img src="assets/our-group-photo.jpg"
-alt="Our group photo">
-
-<figcaption>
-Our Group Photo • Class 9 Students
-</figcaption>
-
-</figure>
-
-
-<figure>
-
-<img src="assets/friends-three.jpg"
-alt="Friends together">
-
-<figcaption>
-Friends Together • A School Memory
-</figcaption>
-
-</figure>
-
-</div>
+    </div>
 
 </section>
 
 
+<!-- About -->
+<section id="about">
 
-<section id="videos" class="reveal">
+    <div class="section-title">
+        <h2>About Me</h2>
+    </div>
 
-<div class="heading">
+    <div class="about">
 
-<h2>Video Gallery</h2>
+        <p>
+            Hi, I'm <strong>Sohail Hashmi</strong>.
+            This website is a personal collection of
+            my friends, memories, photographs and
+            special moments.
+        </p>
 
-<p>
-Your own videos can be added here next.
-</p>
+        <br>
 
-</div>
+        <p>
+            More photos, videos, profiles and memories
+            will be added here in the future.
+        </p>
 
-
-<div class="video">
-
-<div class="play">▶</div>
-
-<h3>Coming Next</h3>
-
-<p>
-When you send the video file, we can add
-a smooth full-screen video section with
-controls and animation.
-</p>
-
-</div>
+    </div>
 
 </section>
 
 
-
+<!-- Footer -->
 <footer>
-
-© 2026 Sohail Hashmi • Friends & Memories
-
+    © 2026 <strong>Sohail Hashmi</strong> — Friends & Memories
 </footer>
-
-
-<script>
-
-const obs = new IntersectionObserver(
-es => es.forEach(e => {
-
-if(e.isIntersecting)
-e.target.classList.add('show')
-
-}),
-{threshold:.12}
-);
-
-document
-.querySelectorAll('.reveal')
-.forEach(e => obs.observe(e));
-
-</script>
 
 </body>
 </html>
