@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SohailFriends | Memories</title>
+<style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,Arial,sans-serif;color:#fff;background:radial-gradient(circle at 15% 10%,#123c4d55,transparent 28%),radial-gradient(circle at 85% 20%,#7a185855,transparent 28%),linear-gradient(145deg,#05060d,#0b1024 55%,#080611);min-height:100vh}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.2;background-image:linear-gradient(#fff1 1px,transparent 1px),linear-gradient(90deg,#fff1 1px,transparent 1px);background-size:44px 44px}
+nav{position:fixed;z-index:9;top:15px;left:50%;transform:translateX(-50%);width:min(1100px,calc(100% - 28px));padding:13px 18px;border:1px solid #ffffff20;border-radius:22px;background:#080b19aa;backdrop-filter:blur(18px);display:flex;justify-content:space-between;align-items:center}
+.logo{font-weight:900;font-size:19px}.logo b{color:#55e7ff}nav a{color:#dfe5ff;text-decoration:none;margin:0 7px;font-size:14px}nav a:hover{color:#55e7ff}
+.hero{min-height:100vh;display:grid;place-items:center;text-align:center;padding:110px 20px 60px}.hero>div{max-width:950px}
+.badge,.tag{display:inline-block;padding:7px 12px;border-radius:999px;border:1px solid #55e7ff55;background:#55e7ff12;color:#c5f7ff}
+h1{font-size:clamp(50px,9vw,105px);line-height:.9;letter-spacing:-5px;margin:25px 0 18px;background:linear-gradient(90deg,#fff,#55e7ff,#ff4fd8,#fff);background-size:250% auto;-webkit-background-clip:text;color:transparent;animation:shine 5s linear infinite}
+.hero p,.section-head p{color:#aeb7d4;line-height:1.7;font-size:17px}.cta{display:inline-block;margin-top:22px;padding:14px 22px;border-radius:15px;color:#06101a;font-weight:900;text-decoration:none;background:linear-gradient(100deg,#55e7ff,#fff,#ff4fd8);box-shadow:0 0 40px #55e7ff33;transition:.3s}.cta:hover{transform:translateY(-4px) scale(1.03)}
+section{width:min(1120px,calc(100% - 28px));margin:auto;padding:75px 0}.section-head{text-align:center;margin-bottom:32px}.section-head h2{font-size:clamp(32px,5vw,55px);margin:0 0 8px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(235px,1fr));gap:22px}.card{overflow:hidden;border-radius:25px;padding:10px;background:linear-gradient(145deg,#ffffff16,#ffffff05);border:1px solid #ffffff18;box-shadow:0 20px 60px #0007;transition:.5s;position:relative}.card:hover{transform:translateY(-11px) rotateX(2deg);border-color:#55e7ff88;box-shadow:0 30px 80px #55e7ff1c,0 0 45px #ff4fd81a}.photo{aspect-ratio:4/3;border-radius:18px;overflow:hidden;background:#11162b}.photo img{width:100%;height:100%;object-fit:cover;transition:.7s}.card:hover img{transform:scale(1.08)}.info{padding:17px 10px 13px}.info h3{font-size:22px;margin:0 0 7px}.info p{color:#aeb7d4;margin:0 0 13px}.tag{font-size:11px;margin-right:5px}
+.gallery figure{margin:0;border-radius:24px;overflow:hidden;border:1px solid #ffffff1c;background:#ffffff06}.gallery img{display:block;width:100%;max-height:600px;object-fit:cover}.gallery figcaption{padding:14px;color:#dfe5ff}
+.video-box{min-height:260px;border:1px dashed #55e7ff55;border-radius:25px;display:grid;place-items:center;text-align:center;padding:30px;background:#ffffff05}.video-box .play{font-size:50px}.video-box p{color:#aeb7d4}
+.reveal{opacity:0;transform:translateY(30px);transition:.8s}.reveal.show{opacity:1;transform:none}footer{text-align:center;padding:45px 20px;color:#8993b5;border-top:1px solid #ffffff10}
+@keyframes shine{to{background-position:250% center}}@media(max-width:700px){nav .links{display:none}h1{letter-spacing:-2px}.hero p{font-size:15px}}
+</style>
+</head>
+<body>
+<nav><div class="logo">Sohail<b>Friends</b></div><div class="links"><a href="#home">Home</a><a href="#friends">Friends</a><a href="#gallery">Gallery</a><a href="#videos">Videos</a><a href="#about">About</a></div></nav>
+<header id="home" class="hero"><div><span class="badge">✦ Memories • Friendship • Class 9</span><h1>Our Story,<br>Our Memories.</h1><p>A modern space for friends, photos, videos and unforgettable school memories.</p><a class="cta" href="#friends">Explore Friends →</a></div></header>
+<section id="friends" class="reveal"><div class="section-head"><h2>Our Friends</h2><p>Animated cards with clean, colorful design.</p></div><div class="grid">
+<article class="card"><div class="photo"><img src="assets/group-photo.jpg" alt="Group photo"></div><div class="info"><h3>Sohail Hashmi</h3><p>Student • Friend</p><span class="tag">Class 9</span><span class="tag">Friendship</span></div></article>
+<article class="card"><div class="photo"><img src="assets/group-photo.jpg" alt="Group photo"></div><div class="info"><h3>Yasir</h3><p>Student • Friend</p><span class="tag">Class 9</span><span class="tag">Friendship</span></div></article>
+<article class="card"><div class="photo"><img src="assets/group-photo.jpg" alt="Group photo"></div><div class="info"><h3>Aizaz-ul-Haq</h3><p>Student • Friend</p><span class="tag">Class 9</span><span class="tag">Friendship</span></div></article>
+<article class="card"><div class="photo"><img src="assets/group-photo.jpg" alt="Group photo"></div><div class="info"><h3>Sudais</h3><p>Student • Friend</p><span class="tag">Class 9</span><span class="tag">Friendship</span></div></article>
+<article class="card"><div class="photo"><img src="assets/group-photo.jpg" alt="Group photo"></div><div class="info"><h3>Israr</h3><p>Student • Friend</p><span class="tag">Class 9</span><span class="tag">Friendship</span></div></article>
+</div></section>
+<section id="gallery" class="reveal"><div class="section-head"><h2>Our Group Photo</h2><p>Class 9 students — one memory, many smiles.</p></div><div class="gallery"><figure><img src="assets/group-photo.jpg" alt="Our Group Photo"><figcaption>Our Group Photo • Class 9</figcaption></figure></div></section>
+<section id="videos" class="reveal"><div class="section-head"><h2>Videos</h2><p>Your videos will be connected here later.</p></div><div class="video-box"><div><div class="play">▶</div><h3>Video Gallery</h3><p>Put MP4 videos in the assets folder and add them here.</p></div></div></section>
+<section id="about" class="reveal"><div class="section-head"><h2>About</h2><p>A digital collection of school friendships and memories.</p></div></section>
+<footer>© 2026 SohailFriends • HTML + CSS + JavaScript</footer>
+<script>
+document.querySelectorAll('.reveal').forEach(x=>new IntersectionObserver(e=>e.forEach(i=>i.isIntersecting&&i.target.classList.add('show')),{threshold:.12}).observe(x));
+</script>
+</body>
+</html>
