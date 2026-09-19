@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Sohail Hashmi | Friends & Memories</title>
+<title>Sohail Hashmi | Friends</title>
 
 <style>
 *{
@@ -18,9 +18,9 @@ html{
 }
 
 body{
-    font-family:Arial, Helvetica, sans-serif;
-    color:white;
-    background:#050511;
+    font-family:Arial,Helvetica,sans-serif;
+    color:#fff;
+    background:#050510;
     overflow-x:hidden;
 }
 
@@ -28,19 +28,19 @@ body{
 body::before{
     content:"";
     position:fixed;
-    inset:-50%;
+    inset:-30%;
     z-index:-2;
     background:
-        radial-gradient(circle at 20% 20%, #4f46e5 0%, transparent 25%),
-        radial-gradient(circle at 80% 30%, #06b6d4 0%, transparent 25%),
-        radial-gradient(circle at 50% 80%, #9333ea 0%, transparent 30%);
+        radial-gradient(circle at 20% 20%,#2563eb55,transparent 25%),
+        radial-gradient(circle at 80% 30%,#d946ef55,transparent 25%),
+        radial-gradient(circle at 50% 80%,#06b6d455,transparent 30%);
     filter:blur(70px);
-    animation:bgMove 12s ease-in-out infinite alternate;
+    animation:backgroundMove 12s infinite alternate ease-in-out;
 }
 
-@keyframes bgMove{
+@keyframes backgroundMove{
     from{
-        transform:translate(-3%,-2%) rotate(0deg);
+        transform:translate(-3%,-2%);
     }
     to{
         transform:translate(3%,2%) rotate(8deg);
@@ -54,16 +54,16 @@ nav{
     left:50%;
     transform:translateX(-50%);
     width:min(1100px,92%);
-    padding:14px 22px;
-    border:1px solid rgba(255,255,255,.15);
-    border-radius:20px;
-    background:rgba(10,10,25,.65);
+    padding:14px 20px;
+    border:1px solid #ffffff20;
+    border-radius:22px;
+    background:#080817aa;
     backdrop-filter:blur(18px);
-    z-index:1000;
-    box-shadow:0 10px 40px rgba(0,0,0,.3);
+    z-index:100;
+    box-shadow:0 15px 50px #0007;
 }
 
-.nav-inner{
+.nav-content{
     display:flex;
     justify-content:space-between;
     align-items:center;
@@ -72,11 +72,10 @@ nav{
 .logo{
     font-size:20px;
     font-weight:900;
-    letter-spacing:1px;
 }
 
 .logo span{
-    background:linear-gradient(90deg,#60a5fa,#c084fc,#22d3ee);
+    background:linear-gradient(90deg,#38bdf8,#a78bfa,#f472b6);
     -webkit-background-clip:text;
     color:transparent;
 }
@@ -84,34 +83,34 @@ nav{
 nav a{
     color:#ddd;
     text-decoration:none;
-    margin-left:22px;
+    margin-left:18px;
     font-size:14px;
     transition:.3s;
 }
 
 nav a:hover{
-    color:#fff;
+    color:#38bdf8;
 }
 
 /* Hero */
 .hero{
     min-height:100vh;
     display:flex;
-    align-items:center;
     justify-content:center;
+    align-items:center;
     text-align:center;
     padding:130px 20px 80px;
 }
 
 .hero-content{
     max-width:900px;
-    animation:heroIn 1.2s ease;
+    animation:heroAppear 1.2s ease;
 }
 
-@keyframes heroIn{
+@keyframes heroAppear{
     from{
         opacity:0;
-        transform:translateY(40px);
+        transform:translateY(45px);
     }
     to{
         opacity:1;
@@ -122,34 +121,33 @@ nav a:hover{
 .badge{
     display:inline-block;
     padding:9px 18px;
+    border:1px solid #ffffff25;
+    background:#ffffff0b;
     border-radius:50px;
-    border:1px solid rgba(255,255,255,.2);
-    background:rgba(255,255,255,.07);
-    color:#b9c7ff;
+    color:#b8c7ff;
+    font-size:13px;
     margin-bottom:25px;
-    font-size:14px;
 }
 
 h1{
-    font-size:clamp(50px,9vw,105px);
-    line-height:.95;
-    font-weight:900;
-    letter-spacing:-4px;
+    font-size:clamp(55px,10vw,110px);
+    line-height:.9;
+    letter-spacing:-5px;
     background:linear-gradient(
         90deg,
         #fff,
-        #60a5fa,
-        #c084fc,
-        #22d3ee,
+        #38bdf8,
+        #a78bfa,
+        #f472b6,
         #fff
     );
     background-size:300%;
     -webkit-background-clip:text;
     color:transparent;
-    animation:gradientMove 7s linear infinite;
+    animation:gradient 7s linear infinite;
 }
 
-@keyframes gradientMove{
+@keyframes gradient{
     to{
         background-position:300%;
     }
@@ -157,195 +155,187 @@ h1{
 
 .hero p{
     max-width:650px;
-    margin:28px auto;
-    color:#b9b9c9;
+    margin:30px auto;
+    color:#aaaabd;
     font-size:18px;
-    line-height:1.7;
+    line-height:1.8;
 }
 
-.btn{
+.button{
     display:inline-block;
-    padding:14px 25px;
-    border-radius:14px;
-    color:white;
+    padding:15px 25px;
+    border-radius:15px;
     text-decoration:none;
+    color:#fff;
     font-weight:bold;
     background:linear-gradient(90deg,#4f46e5,#9333ea);
-    box-shadow:0 10px 30px rgba(99,70,229,.35);
-    transition:.3s;
+    box-shadow:0 15px 40px #4f46e555;
+    transition:.35s;
 }
 
-.btn:hover{
-    transform:translateY(-4px) scale(1.03);
-    box-shadow:0 15px 40px rgba(99,70,229,.5);
+.button:hover{
+    transform:translateY(-5px) scale(1.03);
+    box-shadow:0 20px 55px #9333ea77;
 }
 
 /* Sections */
 section{
     width:min(1100px,92%);
     margin:auto;
-    padding:100px 0;
+    padding:95px 0;
 }
 
 .section-title{
     text-align:center;
-    margin-bottom:50px;
+    margin-bottom:45px;
 }
 
 .section-title h2{
-    font-size:42px;
+    font-size:45px;
     margin-bottom:12px;
 }
 
 .section-title p{
-    color:#999;
-}
-
-/* Main photo */
-.photo-card{
-    position:relative;
-    overflow:hidden;
-    border-radius:30px;
-    border:1px solid rgba(255,255,255,.15);
-    background:rgba(255,255,255,.06);
-    box-shadow:0 30px 80px rgba(0,0,0,.4);
-}
-
-.photo-card img{
-    width:100%;
-    display:block;
-    transition:transform .8s ease;
-}
-
-.photo-card:hover img{
-    transform:scale(1.04);
-}
-
-.photo-info{
-    padding:25px;
-}
-
-.photo-info h3{
-    font-size:28px;
-    margin-bottom:8px;
-}
-
-.photo-info p{
-    color:#aaa;
-    line-height:1.6;
+    color:#9292a7;
 }
 
 /* Cards */
 .cards{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-    gap:25px;
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    gap:24px;
 }
 
 .card{
     position:relative;
     overflow:hidden;
-    padding:28px;
-    min-height:250px;
-    border-radius:25px;
-    border:1px solid rgba(255,255,255,.12);
+    border:1px solid #ffffff18;
+    border-radius:27px;
     background:linear-gradient(
         145deg,
-        rgba(255,255,255,.12),
-        rgba(255,255,255,.035)
+        #ffffff13,
+        #ffffff05
     );
     backdrop-filter:blur(15px);
-    transition:.45s ease;
-}
-
-.card::before{
-    content:"";
-    position:absolute;
-    width:130px;
-    height:130px;
-    background:#6366f1;
-    border-radius:50%;
-    filter:blur(70px);
-    opacity:.25;
-    top:-50px;
-    right:-50px;
+    box-shadow:0 25px 70px #0008;
     transition:.5s;
 }
 
 .card:hover{
     transform:translateY(-12px);
-    border-color:rgba(255,255,255,.3);
-    box-shadow:0 25px 60px rgba(0,0,0,.35);
+    border-color:#ffffff45;
+    box-shadow:0 30px 80px #0009;
 }
 
-.card:hover::before{
-    transform:scale(2);
+.card-image{
+    height:280px;
+    overflow:hidden;
 }
 
-.card-number{
+.card-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    transition:.7s;
+}
+
+.card:hover .card-image img{
+    transform:scale(1.08);
+}
+
+.card-content{
+    padding:22px;
+}
+
+.number{
+    font-size:11px;
     color:#818cf8;
-    font-size:13px;
-    font-weight:bold;
     letter-spacing:2px;
-    margin-bottom:35px;
+    font-weight:bold;
+    margin-bottom:12px;
 }
 
 .card h3{
-    font-size:26px;
-    margin-bottom:10px;
+    font-size:25px;
+    margin-bottom:8px;
 }
 
-.card p{
-    color:#aaa;
+.role{
+    color:#60a5fa;
+    font-weight:bold;
+    margin-bottom:12px;
+}
+
+.description{
+    color:#9999aa;
     line-height:1.6;
 }
 
-.profile-btn{
+.card-link{
     display:inline-block;
-    margin-top:22px;
-    color:#93c5fd;
+    margin-top:18px;
+    color:#c4b5fd;
     text-decoration:none;
     font-size:14px;
 }
 
 /* Group photo */
-.group-photo{
-    border-radius:30px;
+.group-box{
     overflow:hidden;
-    border:1px solid rgba(255,255,255,.15);
-    box-shadow:0 30px 70px rgba(0,0,0,.4);
+    border-radius:30px;
+    border:1px solid #ffffff20;
+    background:#ffffff08;
+    box-shadow:0 30px 80px #0008;
 }
 
-.group-photo img{
+.group-box img{
     width:100%;
     display:block;
     transition:.7s;
 }
 
-.group-photo:hover img{
-    transform:scale(1.025);
+.group-box:hover img{
+    transform:scale(1.03);
 }
 
-.group-caption{
-    text-align:center;
+.group-info{
     padding:25px;
-    background:rgba(255,255,255,.06);
+    text-align:center;
 }
 
-.group-caption h3{
-    font-size:27px;
+.group-info h3{
+    font-size:28px;
     margin-bottom:8px;
 }
 
-.group-caption p{
+.group-info p{
+    color:#999;
+}
+
+/* Video */
+.video-box{
+    padding:60px 25px;
+    text-align:center;
+    border:1px dashed #60a5fa55;
+    border-radius:28px;
+    background:#60a5fa08;
+}
+
+.play{
+    font-size:55px;
+    margin-bottom:15px;
+}
+
+.video-box p{
     color:#999;
 }
 
 /* About */
 .about{
-    text-align:center;
     max-width:750px;
     margin:auto;
+    text-align:center;
 }
 
 .about p{
@@ -358,72 +348,28 @@ section{
 footer{
     text-align:center;
     padding:60px 20px;
-    border-top:1px solid rgba(255,255,255,.1);
     color:#777;
+    border-top:1px solid #ffffff12;
 }
 
 footer strong{
-    color:white;
-}
-
-/* Floating lights */
-.light{
-    position:fixed;
-    width:8px;
-    height:8px;
-    border-radius:50%;
-    background:#fff;
-    opacity:.35;
-    pointer-events:none;
-    animation:float 8s linear infinite;
-}
-
-.light:nth-child(1){
-    left:10%;
-    bottom:-20px;
-    animation-delay:1s;
-}
-
-.light:nth-child(2){
-    left:50%;
-    bottom:-20px;
-    animation-delay:4s;
-}
-
-.light:nth-child(3){
-    left:85%;
-    bottom:-20px;
-    animation-delay:2s;
-}
-
-@keyframes float{
-    0%{
-        transform:translateY(0);
-        opacity:0;
-    }
-    20%{
-        opacity:.5;
-    }
-    100%{
-        transform:translateY(-110vh);
-        opacity:0;
-    }
+    color:#fff;
 }
 
 /* Mobile */
 @media(max-width:650px){
 
     nav{
-        padding:12px 15px;
+        padding:12px 14px;
     }
 
     nav a{
-        margin-left:8px;
-        font-size:12px;
+        margin-left:7px;
+        font-size:11px;
     }
 
     h1{
-        letter-spacing:-2px;
+        letter-spacing:-3px;
     }
 
     .hero p{
@@ -435,11 +381,11 @@ footer strong{
     }
 
     .section-title h2{
-        font-size:32px;
+        font-size:34px;
     }
 
-    .card{
-        min-height:220px;
+    .card-image{
+        height:300px;
     }
 }
 </style>
@@ -447,13 +393,10 @@ footer strong{
 
 <body>
 
-<div class="light"></div>
-<div class="light"></div>
-<div class="light"></div>
-
 <!-- Navigation -->
 <nav>
-    <div class="nav-inner">
+    <div class="nav-content">
+
         <div class="logo">
             <span>Sohail Hashmi</span>
         </div>
@@ -462,8 +405,9 @@ footer strong{
             <a href="#home">Home</a>
             <a href="#friends">Friends</a>
             <a href="#memories">Memories</a>
-            <a href="#about">About</a>
+            <a href="#videos">Videos</a>
         </div>
+
     </div>
 </nav>
 
@@ -478,17 +422,17 @@ footer strong{
         </div>
 
         <h1>
-            Sohail<br>
-            Hashmi
+            Welcome to<br>
+            Sohail Hashmi
         </h1>
 
         <p>
-            Welcome to my personal space — a collection of
-            friends, memories, photographs and unforgettable moments.
+            A modern personal website for friends,
+            memories, photographs and special moments.
         </p>
 
-        <a href="#friends" class="btn">
-            Explore Website →
+        <a href="#friends" class="button">
+            Explore Friends →
         </a>
 
     </div>
@@ -500,74 +444,234 @@ footer strong{
 <section id="friends">
 
     <div class="section-title">
-        <h2>My Friends</h2>
-        <p>People who make the memories special.</p>
+
+        <h2>Meet the Friends</h2>
+
+        <p>
+            Beautiful memories with people who matter.
+        </p>
+
     </div>
+
 
     <div class="cards">
 
+
+        <!-- Sohail -->
         <div class="card">
-            <div class="card-number">01 — FRIEND</div>
-            <h3>Sohail Hashmi</h3>
-            <p>
-                A student and creator who loves technology,
-                websites and creative projects.
-            </p>
-            <a class="profile-btn" href="#about">
-                View Profile →
-            </a>
+
+            <div class="card-image">
+                <img src="sohail.jpg"
+                     alt="Sohail Hashmi">
+            </div>
+
+            <div class="card-content">
+
+                <div class="number">
+                    01 — PROFILE
+                </div>
+
+                <h3>
+                    Sohail Hashmi
+                </h3>
+
+                <div class="role">
+                    Student • Creator
+                </div>
+
+                <p class="description">
+                    Student and creator who loves
+                    technology, websites and creative projects.
+                </p>
+
+                <a href="#about" class="card-link">
+                    View Profile →
+                </a>
+
+            </div>
+
         </div>
 
 
+        <!-- Yasar -->
         <div class="card">
-            <div class="card-number">02 — FRIEND</div>
-            <h3>Yasar</h3>
-            <p>
-                One of the friends featured in our
-                school memories and group moments.
-            </p>
-            <a class="profile-btn" href="#memories">
-                View Memory →
-            </a>
+
+            <div class="card-image">
+                <img src="yasar.jpg"
+                     alt="Yasar">
+            </div>
+
+            <div class="card-content">
+
+                <div class="number">
+                    02 — FRIEND
+                </div>
+
+                <h3>
+                    Yasar
+                </h3>
+
+                <div class="role">
+                    Student • Friend
+                </div>
+
+                <p class="description">
+                    A friend and classmate featured
+                    in our school memories.
+                </p>
+
+                <a href="#memories" class="card-link">
+                    View Memory →
+                </a>
+
+            </div>
+
         </div>
 
 
+        <!-- Ehzaj -->
         <div class="card">
-            <div class="card-number">03 — FRIEND</div>
-            <h3>Ehzaj Ul Haq</h3>
-            <p>
-                A friend and part of our memorable
-                school moments.
-            </p>
-            <a class="profile-btn" href="#memories">
-                View Memory →
-            </a>
+
+            <div class="card-image">
+                <img src="ehzaj.jpg"
+                     alt="Ehzaj Ul Haq">
+            </div>
+
+            <div class="card-content">
+
+                <div class="number">
+                    03 — FRIEND
+                </div>
+
+                <h3>
+                    Ehzaj Ul Haq
+                </h3>
+
+                <div class="role">
+                    Student • Friend
+                </div>
+
+                <p class="description">
+                    A friend who is part of our
+                    memorable school moments.
+                </p>
+
+                <a href="#memories" class="card-link">
+                    View Memory →
+                </a>
+
+            </div>
+
         </div>
 
 
+        <!-- Sudais -->
         <div class="card">
-            <div class="card-number">04 — FRIEND</div>
-            <h3>Sudais</h3>
-            <p>
-                A friend who is part of our
-                unforgettable group memories.
-            </p>
-            <a class="profile-btn" href="#memories">
-                View Memory →
-            </a>
+
+            <div class="card-image">
+                <img src="sudais.jpg"
+                     alt="Sudais">
+            </div>
+
+            <div class="card-content">
+
+                <div class="number">
+                    04 — FRIEND
+                </div>
+
+                <h3>
+                    Sudais
+                </h3>
+
+                <div class="role">
+                    Student • Friend
+                </div>
+
+                <p class="description">
+                    A friend featured in our
+                    unforgettable group memories.
+                </p>
+
+                <a href="#memories" class="card-link">
+                    View Memory →
+                </a>
+
+            </div>
+
         </div>
 
 
+        <!-- Israr -->
         <div class="card">
-            <div class="card-number">05 — FRIEND</div>
-            <h3>Israr</h3>
+
+            <div class="card-image">
+                <img src="israr.jpg"
+                     alt="Israr">
+            </div>
+
+            <div class="card-content">
+
+                <div class="number">
+                    05 — FRIEND
+                </div>
+
+                <h3>
+                    Israr
+                </h3>
+
+                <div class="role">
+                    Student • Friend
+                </div>
+
+                <p class="description">
+                    A friend who is part of our
+                    school memories.
+                </p>
+
+                <a href="#memories" class="card-link">
+                    View Memory →
+                </a>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- Group Photo -->
+<section id="memories">
+
+    <div class="section-title">
+
+        <h2>Our Group Photo</h2>
+
+        <p>
+            Class 9 students — one beautiful memory.
+        </p>
+
+    </div>
+
+
+    <div class="group-box">
+
+        <img src="group-photo.jpg"
+             alt="Our Group Photo">
+
+        <div class="group-info">
+
+            <h3>
+                Our Group Photo
+            </h3>
+
             <p>
-                A friend featured in our
-                school memories.
+                A special moment with our classmates
+                and friends.
             </p>
-            <a class="profile-btn" href="#memories">
-                View Memory →
-            </a>
+
         </div>
 
     </div>
@@ -575,25 +679,33 @@ footer strong{
 </section>
 
 
-<!-- Group Memory -->
-<section id="memories">
+<!-- Videos -->
+<section id="videos">
 
     <div class="section-title">
-        <h2>Our Group Photo</h2>
-        <p>A special memory from our school days.</p>
+
+        <h2>Video Gallery</h2>
+
+        <p>
+            Your videos will appear here.
+        </p>
+
     </div>
 
-    <div class="group-photo">
 
-        <img src="group-photo.jpg" alt="Our Group Photo">
+    <div class="video-box">
 
-        <div class="group-caption">
-            <h3>Our Group Photo</h3>
-            <p>
-                Class 9 students — a beautiful memory
-                captured together.
-            </p>
+        <div class="play">
+            ▶
         </div>
+
+        <h3>
+            Video Gallery Coming Soon
+        </h3>
+
+        <p>
+            We can add your own videos here next.
+        </p>
 
     </div>
 
@@ -604,23 +716,26 @@ footer strong{
 <section id="about">
 
     <div class="section-title">
+
         <h2>About Me</h2>
+
     </div>
+
 
     <div class="about">
 
         <p>
             Hi, I'm <strong>Sohail Hashmi</strong>.
-            This website is a personal collection of
-            my friends, memories, photographs and
+            This website is my creative space for
+            friends, memories, photographs and
             special moments.
         </p>
 
         <br>
 
         <p>
-            More photos, videos, profiles and memories
-            will be added here in the future.
+            More photos, videos and interactive
+            sections can be added in the future.
         </p>
 
     </div>
@@ -628,9 +743,11 @@ footer strong{
 </section>
 
 
-<!-- Footer -->
 <footer>
-    © 2026 <strong>Sohail Hashmi</strong> — Friends & Memories
+
+    © 2026 <strong>Sohail Hashmi</strong>
+    — Friends & Memories
+
 </footer>
 
 </body>
