@@ -19,7 +19,7 @@ html{
 
 body{
     font-family:Arial,Helvetica,sans-serif;
-    color:#fff;
+    color:white;
     background:#050510;
     overflow-x:hidden;
 }
@@ -28,23 +28,20 @@ body{
 body::before{
     content:"";
     position:fixed;
-    inset:-30%;
+    inset:-40%;
     z-index:-2;
     background:
-        radial-gradient(circle at 20% 20%,#2563eb55,transparent 25%),
-        radial-gradient(circle at 80% 30%,#d946ef55,transparent 25%),
-        radial-gradient(circle at 50% 80%,#06b6d455,transparent 30%);
-    filter:blur(70px);
-    animation:backgroundMove 12s infinite alternate ease-in-out;
+      radial-gradient(circle at 15% 20%,#2563eb 0,transparent 25%),
+      radial-gradient(circle at 85% 25%,#d946ef 0,transparent 25%),
+      radial-gradient(circle at 50% 85%,#06b6d4 0,transparent 30%);
+    filter:blur(80px);
+    opacity:.35;
+    animation:bgMove 12s ease-in-out infinite alternate;
 }
 
-@keyframes backgroundMove{
-    from{
-        transform:translate(-3%,-2%);
-    }
-    to{
-        transform:translate(3%,2%) rotate(8deg);
-    }
+@keyframes bgMove{
+    from{transform:translate(-3%,-2%) rotate(0deg)}
+    to{transform:translate(3%,2%) rotate(8deg)}
 }
 
 /* Navigation */
@@ -60,10 +57,9 @@ nav{
     background:#080817aa;
     backdrop-filter:blur(18px);
     z-index:100;
-    box-shadow:0 15px 50px #0007;
 }
 
-.nav-content{
+.nav{
     display:flex;
     justify-content:space-between;
     align-items:center;
@@ -96,18 +92,18 @@ nav a:hover{
 .hero{
     min-height:100vh;
     display:flex;
-    justify-content:center;
     align-items:center;
+    justify-content:center;
     text-align:center;
     padding:130px 20px 80px;
 }
 
 .hero-content{
     max-width:900px;
-    animation:heroAppear 1.2s ease;
+    animation:heroIn 1.2s ease;
 }
 
-@keyframes heroAppear{
+@keyframes heroIn{
     from{
         opacity:0;
         transform:translateY(45px);
@@ -122,10 +118,9 @@ nav a:hover{
     display:inline-block;
     padding:9px 18px;
     border:1px solid #ffffff25;
-    background:#ffffff0b;
     border-radius:50px;
-    color:#b8c7ff;
-    font-size:13px;
+    background:#ffffff0b;
+    color:#c7d2fe;
     margin-bottom:25px;
 }
 
@@ -134,12 +129,7 @@ h1{
     line-height:.9;
     letter-spacing:-5px;
     background:linear-gradient(
-        90deg,
-        #fff,
-        #38bdf8,
-        #a78bfa,
-        #f472b6,
-        #fff
+        90deg,#fff,#38bdf8,#a78bfa,#f472b6,#fff
     );
     background-size:300%;
     -webkit-background-clip:text;
@@ -148,9 +138,7 @@ h1{
 }
 
 @keyframes gradient{
-    to{
-        background-position:300%;
-    }
+    to{background-position:300%}
 }
 
 .hero p{
@@ -165,8 +153,8 @@ h1{
     display:inline-block;
     padding:15px 25px;
     border-radius:15px;
+    color:white;
     text-decoration:none;
-    color:#fff;
     font-weight:bold;
     background:linear-gradient(90deg,#4f46e5,#9333ea);
     box-shadow:0 15px 40px #4f46e555;
@@ -175,7 +163,6 @@ h1{
 
 .button:hover{
     transform:translateY(-5px) scale(1.03);
-    box-shadow:0 20px 55px #9333ea77;
 }
 
 /* Sections */
@@ -185,17 +172,17 @@ section{
     padding:95px 0;
 }
 
-.section-title{
+.title{
     text-align:center;
     margin-bottom:45px;
 }
 
-.section-title h2{
+.title h2{
     font-size:45px;
     margin-bottom:12px;
 }
 
-.section-title p{
+.title p{
     color:#9292a7;
 }
 
@@ -211,24 +198,38 @@ section{
     overflow:hidden;
     border:1px solid #ffffff18;
     border-radius:27px;
-    background:linear-gradient(
-        145deg,
-        #ffffff13,
-        #ffffff05
-    );
+    background:linear-gradient(145deg,#ffffff13,#ffffff05);
     backdrop-filter:blur(15px);
     box-shadow:0 25px 70px #0008;
     transition:.5s;
 }
 
 .card:hover{
-    transform:translateY(-12px);
-    border-color:#ffffff45;
+    transform:translateY(-13px);
+    border-color:#60a5fa66;
     box-shadow:0 30px 80px #0009;
 }
 
+.card::after{
+    content:"";
+    position:absolute;
+    width:140px;
+    height:140px;
+    border-radius:50%;
+    background:#38bdf8;
+    filter:blur(70px);
+    opacity:0;
+    top:-60px;
+    right:-50px;
+    transition:.5s;
+}
+
+.card:hover::after{
+    opacity:.25;
+}
+
 .card-image{
-    height:280px;
+    height:290px;
     overflow:hidden;
 }
 
@@ -245,14 +246,16 @@ section{
 }
 
 .card-content{
+    position:relative;
+    z-index:2;
     padding:22px;
 }
 
 .number{
-    font-size:11px;
     color:#818cf8;
-    letter-spacing:2px;
+    font-size:11px;
     font-weight:bold;
+    letter-spacing:2px;
     margin-bottom:12px;
 }
 
@@ -272,16 +275,24 @@ section{
     line-height:1.6;
 }
 
-.card-link{
+.profile{
     display:inline-block;
     margin-top:18px;
-    color:#c4b5fd;
+    padding:10px 15px;
+    border:1px solid #ffffff18;
+    border-radius:12px;
+    color:#ddd;
     text-decoration:none;
-    font-size:14px;
+    transition:.3s;
+}
+
+.profile:hover{
+    background:#ffffff12;
+    transform:translateX(5px);
 }
 
 /* Group photo */
-.group-box{
+.group{
     overflow:hidden;
     border-radius:30px;
     border:1px solid #ffffff20;
@@ -289,13 +300,13 @@ section{
     box-shadow:0 30px 80px #0008;
 }
 
-.group-box img{
+.group img{
     width:100%;
     display:block;
     transition:.7s;
 }
 
-.group-box:hover img{
+.group:hover img{
     transform:scale(1.03);
 }
 
@@ -314,7 +325,7 @@ section{
 }
 
 /* Video */
-.video-box{
+.video{
     padding:60px 25px;
     text-align:center;
     border:1px dashed #60a5fa55;
@@ -327,7 +338,7 @@ section{
     margin-bottom:15px;
 }
 
-.video-box p{
+.video p{
     color:#999;
 }
 
@@ -353,7 +364,7 @@ footer{
 }
 
 footer strong{
-    color:#fff;
+    color:white;
 }
 
 /* Mobile */
@@ -380,12 +391,12 @@ footer strong{
         padding:70px 0;
     }
 
-    .section-title h2{
+    .title h2{
         font-size:34px;
     }
 
     .card-image{
-        height:300px;
+        height:310px;
     }
 }
 </style>
@@ -393,10 +404,8 @@ footer strong{
 
 <body>
 
-<!-- Navigation -->
 <nav>
-    <div class="nav-content">
-
+    <div class="nav">
         <div class="logo">
             <span>Sohail Hashmi</span>
         </div>
@@ -407,12 +416,11 @@ footer strong{
             <a href="#memories">Memories</a>
             <a href="#videos">Videos</a>
         </div>
-
     </div>
 </nav>
 
 
-<!-- Hero -->
+<!-- HERO -->
 <header class="hero" id="home">
 
     <div class="hero-content">
@@ -427,8 +435,8 @@ footer strong{
         </h1>
 
         <p>
-            A modern personal website for friends,
-            memories, photographs and special moments.
+            Welcome to my personal website — a modern
+            collection of friends, photographs and memories.
         </p>
 
         <a href="#friends" class="button">
@@ -440,29 +448,23 @@ footer strong{
 </header>
 
 
-<!-- Friends -->
+<!-- FRIEND CARDS -->
 <section id="friends">
 
-    <div class="section-title">
-
+    <div class="title">
         <h2>Meet the Friends</h2>
-
-        <p>
-            Beautiful memories with people who matter.
-        </p>
-
+        <p>Beautiful memories, presented in modern cards.</p>
     </div>
 
 
     <div class="cards">
 
 
-        <!-- Sohail -->
+        <!-- SOHAIL -->
         <div class="card">
 
             <div class="card-image">
-                <img src="sohail.jpg"
-                     alt="Sohail Hashmi">
+                <img src="sohail.jpg" alt="Sohail Hashmi">
             </div>
 
             <div class="card-content">
@@ -471,34 +473,30 @@ footer strong{
                     01 — PROFILE
                 </div>
 
-                <h3>
-                    Sohail Hashmi
-                </h3>
+                <h3>Sohail Hashmi</h3>
 
                 <div class="role">
                     Student • Creator
                 </div>
 
                 <p class="description">
-                    Student and creator who loves
+                    Student and creator interested in
                     technology, websites and creative projects.
                 </p>
 
-                <a href="#about" class="card-link">
+                <a href="#about" class="profile">
                     View Profile →
                 </a>
 
             </div>
-
         </div>
 
 
-        <!-- Yasar -->
+        <!-- YASAR -->
         <div class="card">
 
             <div class="card-image">
-                <img src="yasar.jpg"
-                     alt="Yasar">
+                <img src="yasar.jpg" alt="Yasar">
             </div>
 
             <div class="card-content">
@@ -507,34 +505,30 @@ footer strong{
                     02 — FRIEND
                 </div>
 
-                <h3>
-                    Yasar
-                </h3>
+                <h3>Yasar</h3>
 
                 <div class="role">
                     Student • Friend
                 </div>
 
                 <p class="description">
-                    A friend and classmate featured
+                    A classmate and friend featured
                     in our school memories.
                 </p>
 
-                <a href="#memories" class="card-link">
+                <a href="#memories" class="profile">
                     View Memory →
                 </a>
 
             </div>
-
         </div>
 
 
-        <!-- Ehzaj -->
+        <!-- EHZАJ -->
         <div class="card">
 
             <div class="card-image">
-                <img src="ehzaj.jpg"
-                     alt="Ehzaj Ul Haq">
+                <img src="ehzaj.jpg" alt="Ehzaj Ul Haq">
             </div>
 
             <div class="card-content">
@@ -543,34 +537,30 @@ footer strong{
                     03 — FRIEND
                 </div>
 
-                <h3>
-                    Ehzaj Ul Haq
-                </h3>
+                <h3>Ehzaj Ul Haq</h3>
 
                 <div class="role">
                     Student • Friend
                 </div>
 
                 <p class="description">
-                    A friend who is part of our
-                    memorable school moments.
+                    A friend and part of our
+                    school memories.
                 </p>
 
-                <a href="#memories" class="card-link">
+                <a href="#memories" class="profile">
                     View Memory →
                 </a>
 
             </div>
-
         </div>
 
 
-        <!-- Sudais -->
+        <!-- SUDAIS -->
         <div class="card">
 
             <div class="card-image">
-                <img src="sudais.jpg"
-                     alt="Sudais">
+                <img src="sudais.jpg" alt="Sudais">
             </div>
 
             <div class="card-content">
@@ -579,9 +569,7 @@ footer strong{
                     04 — FRIEND
                 </div>
 
-                <h3>
-                    Sudais
-                </h3>
+                <h3>Sudais</h3>
 
                 <div class="role">
                     Student • Friend
@@ -589,24 +577,22 @@ footer strong{
 
                 <p class="description">
                     A friend featured in our
-                    unforgettable group memories.
+                    school memories.
                 </p>
 
-                <a href="#memories" class="card-link">
+                <a href="#memories" class="profile">
                     View Memory →
                 </a>
 
             </div>
-
         </div>
 
 
-        <!-- Israr -->
+        <!-- ISRAR -->
         <div class="card">
 
             <div class="card-image">
-                <img src="israr.jpg"
-                     alt="Israr">
+                <img src="israr.jpg" alt="Israr">
             </div>
 
             <div class="card-content">
@@ -615,9 +601,7 @@ footer strong{
                     05 — FRIEND
                 </div>
 
-                <h3>
-                    Israr
-                </h3>
+                <h3>Israr</h3>
 
                 <div class="role">
                     Student • Friend
@@ -628,12 +612,11 @@ footer strong{
                     school memories.
                 </p>
 
-                <a href="#memories" class="card-link">
+                <a href="#memories" class="profile">
                     View Memory →
                 </a>
 
             </div>
-
         </div>
 
 
@@ -642,34 +625,24 @@ footer strong{
 </section>
 
 
-<!-- Group Photo -->
+<!-- GROUP PHOTO -->
 <section id="memories">
 
-    <div class="section-title">
-
+    <div class="title">
         <h2>Our Group Photo</h2>
-
-        <p>
-            Class 9 students — one beautiful memory.
-        </p>
-
+        <p>Class 9 students — one special memory.</p>
     </div>
 
+    <div class="group">
 
-    <div class="group-box">
-
-        <img src="group-photo.jpg"
-             alt="Our Group Photo">
+        <img src="group-photo.jpg" alt="Our Group Photo">
 
         <div class="group-info">
 
-            <h3>
-                Our Group Photo
-            </h3>
+            <h3>Our Group Photo</h3>
 
             <p>
-                A special moment with our classmates
-                and friends.
+                A beautiful school memory captured together.
             </p>
 
         </div>
@@ -679,32 +652,22 @@ footer strong{
 </section>
 
 
-<!-- Videos -->
+<!-- VIDEO -->
 <section id="videos">
 
-    <div class="section-title">
-
+    <div class="title">
         <h2>Video Gallery</h2>
-
-        <p>
-            Your videos will appear here.
-        </p>
-
+        <p>Your videos can be added here.</p>
     </div>
 
+    <div class="video">
 
-    <div class="video-box">
+        <div class="play">▶</div>
 
-        <div class="play">
-            ▶
-        </div>
-
-        <h3>
-            Video Gallery Coming Soon
-        </h3>
+        <h3>Video Gallery</h3>
 
         <p>
-            We can add your own videos here next.
+            We can add your own videos here in the next step.
         </p>
 
     </div>
@@ -712,30 +675,26 @@ footer strong{
 </section>
 
 
-<!-- About -->
+<!-- ABOUT -->
 <section id="about">
 
-    <div class="section-title">
-
+    <div class="title">
         <h2>About Me</h2>
-
     </div>
-
 
     <div class="about">
 
         <p>
             Hi, I'm <strong>Sohail Hashmi</strong>.
             This website is my creative space for
-            friends, memories, photographs and
-            special moments.
+            friends, photographs, memories and projects.
         </p>
 
         <br>
 
         <p>
-            More photos, videos and interactive
-            sections can be added in the future.
+            More photos, videos and interactive features
+            can be added here.
         </p>
 
     </div>
@@ -744,10 +703,7 @@ footer strong{
 
 
 <footer>
-
-    © 2026 <strong>Sohail Hashmi</strong>
-    — Friends & Memories
-
+    © 2026 <strong>Sohail Hashmi</strong> — Friends & Memories
 </footer>
 
 </body>
